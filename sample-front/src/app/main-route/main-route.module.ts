@@ -4,7 +4,7 @@ import { LoginComponent } from '../pages/login/login.component';
 
 export const  MainRouteModule: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import('./../pages/login/login.module').then(mod => mod.LoginModule)
   },
   {

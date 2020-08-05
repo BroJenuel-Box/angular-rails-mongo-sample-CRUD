@@ -1,5 +1,7 @@
+import { RequestServiceService } from './../../service/request-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,34 +12,48 @@ import { FormControl, Validators } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 
-  email = '';
+  username = '';
   password = '';
   hide = true;
   error = false;
+  submitLoading = false;
 
-  constructor() { }
+  constructor(
+    private RS: RequestServiceService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
+  usernameFormControl = new FormControl('', [
+    Validators.required
   ]);
 
   passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5)
+    Validators.required
   ]);
 
   login() {
+    this.submitLoading = true;
     if (
-      this.emailFormControl.hasError('email') ||
-      this.emailFormControl.hasError('required') ||
-      this.passwordFormControl.hasError('required') ||
-      this.passwordFormControl.hasError('minLength')
+      this.usernameFormControl.hasError('required') ||
+      this.passwordFormControl.hasError('required')
       ) {
-        this.error = true;
+        alert('Fields Are Required');
+        this.submitLoading = true;
         return true;
     } else {
-      alert('Logined');
+      this.RS.httpLogin('/login', { username: this.username, password: this.password }).subscribe(
+        (data: any) => {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('type', data.type);
+          this.router.navigate([data.type === 1 ? '/admin' : 'regular']);
+          this.submitLoading = false;
+        },
+        error => {
+          alert(error.error);
+          this.submitLoading = false;
+        }
+      );
     }
   }
 

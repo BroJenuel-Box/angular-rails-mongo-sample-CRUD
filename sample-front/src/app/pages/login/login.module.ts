@@ -5,9 +5,8 @@ import { CommonModule } from '@angular/common';
 import {MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,10 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    HttpClientModule
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    MatIconModule
   ],
 })
 export class LoginModule { }
