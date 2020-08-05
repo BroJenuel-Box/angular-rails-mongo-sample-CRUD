@@ -1,7 +1,12 @@
 import { AuthGuardGuard } from './../guard/auth-guard.guard';
 import { Routes } from '@angular/router';
+import { LoginComponent } from '../pages/login/login.component';
 
 export const  MainRouteModule: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./../pages/login/login.module').then(mod => mod.LoginModule)
+  },
   {
     path: 'admin',
     loadChildren: () => import('./../users/admin/admin.module').then(mod => mod.AdminModule),
