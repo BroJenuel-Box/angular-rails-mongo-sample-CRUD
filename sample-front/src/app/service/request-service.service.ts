@@ -29,14 +29,14 @@ export class RequestServiceService {
       par += key + '=' + params[key] + '&';
     });
     const headers = {
-      token: JSON.parse(localStorage.getItem(this.tokenName))
+      token: localStorage.getItem(this.tokenName)
     };
     return this.http.get(apiUrl + url + par, { headers });
   }
   // post
-  httpPost(url, params) {
+  httpPost(url, params = {}) {
     const headers = {
-      token: JSON.parse(localStorage.getItem(this.tokenName))
+      token: localStorage.getItem(this.tokenName)
     };
     return this.http.post(apiUrl + url, params, { headers });
   }

@@ -14,10 +14,13 @@ class Api::V1::LoginController < ApplicationController
           end
      end
 
-     def check_token
+     def check_auth
           self.check_auth(2)
      end
 
+     def check_tok
+          self.check_token
+     end
 
      private
      def login_params

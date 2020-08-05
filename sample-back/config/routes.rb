@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       get 'get_user_info', action: :get_user_information, controller: :users_info
 
       post 'login', action: :Login, controller: :login
-      post 'check_token', action: :check_token, controller: :login
+      post 'check_auth', action: :check_auth, controller: :login
+      post 'check_token', action: :check_tok, controller: :login
     end
   end
 end

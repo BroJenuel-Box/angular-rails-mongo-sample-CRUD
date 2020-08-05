@@ -27,4 +27,18 @@ class ApplicationController < ActionController::API
                render json: 'Unauthorized', status: :unauthorized
           end
      end
+
+     def check_token
+          user_token = decrypt_token(request.headers['token'])
+          if user_token
+               account = User.find(user_token[:id])
+               if account
+                    render json: account, status: :ok
+               else
+                    render json: 'Unauthorized', status: :unauthorized
+               end
+          else
+               render json: 'Unauthorized', status: :unauthorized
+          end
+     end
 end
