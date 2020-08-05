@@ -7,10 +7,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { RegisterComponent } from './register/register.component';
+import { LoginPageComponent } from './login/login-page.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    LoginPageComponent
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,11 @@ export class RequestServiceService {
     return this.http.post(apiUrl + url, params, {});
   }
 
+  // Register
+  httpRegister(url, params = {}) {
+    return this.http.post(apiUrl + url, params, {});
+  }
+
   // get
   httpGet(url, params = {}) {
     let par = '?';

@@ -1,6 +1,5 @@
 import { AuthGuardGuard } from './../guard/auth-guard.guard';
 import { Routes } from '@angular/router';
-import { LoginComponent } from '../pages/login/login.component';
 
 export const  MainRouteModule: Routes = [
   {
@@ -15,6 +14,9 @@ export const  MainRouteModule: Routes = [
   {
     path: 'regular',
     loadChildren: () => import('./../users/regular/regular.module').then(mod => mod.RegularModule)
+  },
+  {
+    path: '',   redirectTo: '/login', pathMatch: 'full'
   },
   {
     path: '**',

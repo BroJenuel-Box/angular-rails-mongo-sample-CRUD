@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
      before_action :set_user, only: [:show_user, :update_user, :delete_user]
-     before_action only: [:update_user, :create_user, :delete_user] do
+     before_action only: [:update_user, :delete_user] do
           check_auth(2)
      end
 

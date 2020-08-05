@@ -1,0 +1,65 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Register Account</mat-card-title>
+    <mat-card-subtitle>Fill up the form bellow</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ul style="font-size: 12px; color: red;">
+      <li *ngIf="retypePassword != password" >Passwords Doesnt Match</li>
+    </ul>
+    <!-- username -->
+    <mat-form-field class="login-input">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username" [formControl]="usernameFormControl" autocomplete="off">
+      <mat-error *ngIf="usernameFormControl.hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+        Username must be atleast <strong>5 length</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- email -->
+    <mat-form-field class="login-input">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" [formControl]="emailFormControl" autocomplete="off">
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('email')">
+        Input an <strong>email</strong> format
+      </mat-error>
+    </mat-form-field>
+    <!-- password -->
+    <mat-form-field class="login-input">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" autocomplete="off">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+        Password length should be at least 5 length
+      </mat-error>
+    </mat-form-field>
+    <!-- retype password -->
+    <mat-form-field class="login-input">
+      <mat-label>Retype Password</mat-label>
+      <input matInput [(ngModel)]="retypePassword" [formControl]="retypePasswordValidate" [type]="hide2 ? 'password' : 'text'" autocomplete="off">
+      <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      <mat-error *ngIf="retypePasswordValidate.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="retypePasswordValidate.hasError('minlength')">
+        Password length should be at least 5 length
+      </mat-error>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" [routerLink]='["/login"]'>Have Account?</button>
+    <button mat-raised-button color="primary" [disabled]="submitLoading" [class.spinner]="submitLoading" (click)='register()' style="float:right;">Register</button>
+  </mat-card-actions>
+</mat-card>

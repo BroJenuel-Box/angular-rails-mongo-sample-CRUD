@@ -2,6 +2,7 @@
   margin-right: auto;
   margin-left: auto;
   width: 250px;
+  margin-top:50px;
 }
 
 .login-input{
@@ -26,4 +27,13 @@
   border: 2px solid #ffffff;
   border-top-color: #000000;
   animation: spinner .8s linear infinite;
+}
+
+
+.registered-success{
+  padding: 15px;
+  border-radius: 10px;
+  background: #039e03;
+  color: white;
+  margin-bottom: 10px;
 }
