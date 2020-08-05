@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
         (data: any) => {
           this.router.navigate(['/login'], {queryParams: { signin: true }});
         },
-        error => { console.log(error.error); this.submitLoading = false;}
+        error => { console.log(error.error); this.submitLoading = false; }
       );
     }
   }
