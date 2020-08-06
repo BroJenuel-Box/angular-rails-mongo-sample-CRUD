@@ -1,5 +1,32 @@
-<button [routerLink]='["/admin"]'>Home</button>
-<button [routerLink]='["about"]'>About</button>
-<div style="margin: 20px; border: 1px solid red; padding: 50px;">
-  <router-outlet></router-outlet>
-</div>
+<ng-container>
+  <mat-toolbar color="primary">
+    <span [ngClass]="navOpen ? 'title-wih-nav': 'title-wihout-nav'" style="transition: 0.3s">Admin Page</span>
+  </mat-toolbar>
+  <!-- nav bar toggle -->
+  <button mat-mini-fab color="color" [ngClass]="navOpen ? 'nav-toggle-with-nav' : 'nav-toggle-without-nav'" class="nav-toggle" style="transition: 0.3s;" (click)="sidenav.toggle(); navOpen = !navOpen">
+    <mat-icon *ngIf="navOpen">format_indent_decrease</mat-icon>
+    <mat-icon *ngIf="!navOpen">format_indent_increase</mat-icon>
+  </button>
+  <mat-sidenav-container class="example-container">
+
+    <mat-sidenav #sidenav mode="side" [opened]='navOpen' class="a-sidenav"
+                 [fixedInViewport]="true" [fixedTopGap]="0"
+                 [fixedBottomGap]="0" style="width: 240px;" >
+                 <div style="text-align: center; margin: 10px;">
+                  <img src="./../../../../assets/logo-sample.png" alt="" srcset="" width="80%" >
+                 </div>
+                  <div style="position: relative;">
+                    <mat-selection-list #shoes [multiple]="false">
+                      <mat-list-option *ngFor="let menu of appMenu" [routerLink]="[menu.route]" [value]="menu.title">
+                        {{menu.title}}
+                      </mat-list-option>
+                    </mat-selection-list>
+                  </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="padding: 20px 20px 0px 35px;">
+        <!-- this is the router -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

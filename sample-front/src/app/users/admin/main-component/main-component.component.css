@@ -1,0 +1,37 @@
+.a-sidenav{
+  width: 240px;
+}
+
+.title-wih-nav{
+  margin-left: 270px;
+}
+
+.title-wihout-nav{
+  margin-left: 50px;
+}
+
+.transition{
+  transition: 0.3s;
+}
+
+.nav-toggle{
+  position: fixed; z-index: 10;
+}
+
+.nav-toggle-with-nav{
+  margin-left: 220px;
+  margin-top: -25px;
+}
+
+.nav-toggle-without-nav{
+  margin-left: 10px;
+  margin-top: -55px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .nav-toggle-without-nav{
+    margin-left: 10px;
+    margin-top: -50px;
+  }
+}
