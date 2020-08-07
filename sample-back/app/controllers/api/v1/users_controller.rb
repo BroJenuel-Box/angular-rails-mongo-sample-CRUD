@@ -38,6 +38,7 @@ class Api::V1::UsersController < ApplicationController
           # their are 2 ways to create a data User.new(params) and User.create!(params)
           #User.new(params) is better dahil its easy to manipulate
           user = User.new(user_params)
+          user.type = 2; # every new user automatically type 2
           if user.save #save means it will check the validation sa user model then if validates pass returns true and add data to tables
                render json: { message: 'New Account Added', user: user.as_json(:except => [:password_digest]) }, status: :ok
           else
