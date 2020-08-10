@@ -29,7 +29,7 @@ class Api::V1::UsersController < ApplicationController
           data = {:count => users.count, :limit => limit, :page => page}
           # pag nag fefetch ng user, we should always not return the password even if it is encrypted
           # yong model.as_json(:esxcept => []) is to choose some collumn that we dont want to show
-          data[:data] = users.as_json(:except => [:password_digest])
+          data[:data] = users.as_json(:except => [:password_digest, :token])
           render json: data, status: :ok
      end
 

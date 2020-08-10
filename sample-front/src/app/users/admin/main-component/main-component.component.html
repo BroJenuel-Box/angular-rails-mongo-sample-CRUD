@@ -18,7 +18,9 @@
                   <div style="position: relative;">
                     <mat-selection-list #shoes [multiple]="false">
                       <mat-list-option *ngFor="let menu of appMenu" [routerLink]="[menu.route]" [value]="menu.title">
-                        {{menu.title}}
+
+                        <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+                        <div mat-line>{{menu.title}}</div>
                       </mat-list-option>
                     </mat-selection-list>
                   </div>

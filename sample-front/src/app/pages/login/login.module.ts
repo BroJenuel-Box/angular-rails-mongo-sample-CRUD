@@ -25,5 +25,8 @@ import { LoginPageComponent } from './login/login-page.component';
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MatIconModule
   ],
+  exports: [
+    RegisterComponent
+  ]
 })
 export class LoginModule { }

@@ -14,8 +14,13 @@ export class MainComponentComponent implements OnInit {
       route: '/admin'
     },
     {
+      title: 'Manage Users',
+      icon: 'person',
+      route: 'manage-user'
+    },
+    {
       title: 'about',
-      icon: 'about',
+      icon: 'priority_high',
       route: 'about'
     }
   ];
