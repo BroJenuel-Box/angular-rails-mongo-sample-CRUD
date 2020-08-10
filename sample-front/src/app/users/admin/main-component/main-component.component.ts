@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-component',
@@ -27,7 +28,18 @@ export class MainComponentComponent implements OnInit {
 
   navOpen = true;
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  logout(){
+    if(confirm("Are YOu Sure To Logout?")){
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    }else{
+      return true;
+    }
+  }
 
   ngOnInit(): void {
   }

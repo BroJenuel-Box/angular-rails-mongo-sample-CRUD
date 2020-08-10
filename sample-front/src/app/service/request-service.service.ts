@@ -43,14 +43,14 @@ export class RequestServiceService {
   // put
   httpPut(url, params) {
     const headers = {
-      token: JSON.parse(localStorage.getItem(this.tokenName))
+      token: localStorage.getItem(this.tokenName)
     };
     return this.http.put(apiUrl + url, params, { headers });
   }
   // delete
   httpDelete(url) {
     const headers = {
-      token: JSON.parse(localStorage.getItem(this.tokenName))
+      token: localStorage.getItem(this.tokenName)
     };
 
     return this.http.delete(apiUrl + url, { headers });

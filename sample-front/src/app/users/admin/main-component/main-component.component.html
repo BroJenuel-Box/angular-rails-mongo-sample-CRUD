@@ -1,6 +1,8 @@
 <ng-container>
   <mat-toolbar color="primary">
     <span [ngClass]="navOpen ? 'title-wih-nav': 'title-wihout-nav'" style="transition: 0.3s">Admin Page</span>
+    <span style="flex: 1 1 auto;"></span>
+    <button mat-button (click)="logout()"><mat-icon>logout</mat-icon> Logout</button>
   </mat-toolbar>
   <!-- nav bar toggle -->
   <button mat-mini-fab color="color" [ngClass]="navOpen ? 'nav-toggle-with-nav' : 'nav-toggle-without-nav'" class="nav-toggle" style="transition: 0.3s;" (click)="sidenav.toggle(); navOpen = !navOpen">

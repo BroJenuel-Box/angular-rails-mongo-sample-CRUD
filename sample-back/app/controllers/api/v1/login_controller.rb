@@ -15,7 +15,7 @@ class Api::V1::LoginController < ApplicationController
      end
 
      def check_auth
-          self.check_auth(2)
+          self.check_auth(1)
      end
 
      def check_tok

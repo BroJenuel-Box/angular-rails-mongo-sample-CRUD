@@ -16,15 +16,15 @@ class ApplicationController < ActionController::API
                account = User.find(user_token[:id])
                if account && account.type == user_type.to_i
                     if Time.now.to_i > user_token[:token_ex].to_i
-                         render json: 'Token Expired, Login again', status: :ok
+                         render json: {message: 'Token Expired, Login again'}, status: :unauthorized
                     else
                          return true
                     end
                else
-                    render json: 'Unauthorized', status: :unauthorized
+                    render json: {message: 'Unauthorized'}, status: :unauthorized
                end
           else
-               render json: 'Unauthorized', status: :unauthorized
+               render json: {message: 'Unauthorized' }, status: :unauthorized
           end
      end
 
@@ -33,7 +33,11 @@ class ApplicationController < ActionController::API
           if user_token
                account = User.find(user_token[:id])
                if account
-                    render json: account, status: :ok
+                    if Time.now.to_i > user_token[:token_ex].to_i
+                         render json: {message: 'Token Expired, Login again'}, status: :unauthorized
+                    else
+                         render json: account, status: :unauthorized
+                    end
                else
                     render json: 'Unauthorized', status: :unauthorized
                end

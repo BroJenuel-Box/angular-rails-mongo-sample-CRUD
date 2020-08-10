@@ -12,14 +12,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddUserComponent } from './component/all-users/component/add-user.component';
+import { AddUserComponent } from './component/all-users/component/add-user/add-user.component';
+import { EditUserComponent } from './component/all-users/component/edit-user/edit-user.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
   declarations: [
     ManageUserComponent,
     AllUsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import { AddUserComponent } from './component/all-users/component/add-user.compo
     MatPaginatorModule,
     MatDialogModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class ManageUserModule { }
