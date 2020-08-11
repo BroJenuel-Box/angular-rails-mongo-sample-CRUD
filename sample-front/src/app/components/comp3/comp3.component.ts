@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-comp3',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Comp3Component implements OnInit {
 
-  constructor() { }
+  message: any;
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit(): void {
+    this.dataservice.currentMessage.subscribe(data => this.message = data);
   }
 
 }

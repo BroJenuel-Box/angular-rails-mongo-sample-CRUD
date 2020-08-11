@@ -9,11 +9,12 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class Comp1Component implements OnInit {
 
-  message: string;
+  message:string;
 
-  constructor(private dataservice: DataService) { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(data => this.message = data);
   }
 
 }

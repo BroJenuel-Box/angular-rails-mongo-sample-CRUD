@@ -1,5 +1,7 @@
 <div style="width: 750px; background-color: #c22722; color: white; padding: 20px;">
-  <h2>Com1</h2>
-  <input type="text" style="outline: none;padding: 20px;">
-  <button style="outline: none;padding: 20px; margin-left: 10px;">Set Value</button>
+  <h2>Com4</h2>
+  <input [(ngModel)]="value" type="text" style="outline: none;padding: 20px;" >
+  <button style="outline: none;padding: 20px; margin-left: 10px;" (click)="newMessage()">Change Message</button>
+  <br><br>
+  Message: {{ message }}
 </div>

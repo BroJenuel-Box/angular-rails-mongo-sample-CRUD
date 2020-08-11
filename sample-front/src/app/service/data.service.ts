@@ -5,12 +5,12 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DataService {
 
-  private stringDataSource = new BehaviorSubject<string>('This is the Default');
-  currentData = this.stringDataSource.asObservable();
+  private messageSource = new BehaviorSubject<string>('This is Data Service Default Text');
+  currentMessage = this.messageSource.asObservable();
 
   constructor() { }
 
-  changeMessage(data: string) {
-    this.stringDataSource.next(data)
+  changeMessage(message: string) {
+    this.messageSource.next(message);
   }
 }

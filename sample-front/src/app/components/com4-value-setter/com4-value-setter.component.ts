@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-com4-value-setter',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Com4ValueSetterComponent implements OnInit {
 
-  constructor() { }
+  value = '';
+  message: string;
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit(): void {
+    this.dataservice.currentMessage.subscribe(data => this.message = data)
+  }
+
+  newMessage(){
+    this.dataservice.changeMessage(this.value);
   }
 
 }
