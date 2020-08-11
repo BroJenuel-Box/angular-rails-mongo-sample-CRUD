@@ -14,7 +14,6 @@ export class Comp1Component implements OnInit {
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.dataservice.changeMessage.subscribe(string => this.message = string)
   }
 
 }
