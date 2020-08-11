@@ -1,0 +1,16 @@
+.get-button{
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2f2f2f;
+  color: white;
+  transition: 0.3s;
+  outline: none;
+}
+.get-button:hover{
+  background-color: #8b0463;
+  color: white;
+}
+.get-button:active{
+  background-color: #8b0404;
+}

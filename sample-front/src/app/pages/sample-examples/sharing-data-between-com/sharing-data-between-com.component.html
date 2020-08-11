@@ -1,0 +1,12 @@
+<app-header [title]="'This is my written title'"></app-header>
+<div style="margin: 20px;">
+  <p>sharing-data-between-com works!</p>
+
+  <app-button></app-button>
+
+  <div style="border: 1px solid green; padding: 20px;">
+    <app-get-my-data-button (getMyData)="getData($event)"></app-get-my-data-button>
+    {{data}}
+  </div>
+
+</div>

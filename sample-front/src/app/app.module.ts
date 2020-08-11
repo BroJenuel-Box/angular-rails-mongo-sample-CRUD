@@ -7,10 +7,16 @@ import { AppComponent } from './app.component';
 import { MainRouteModule } from './main-route/main-route.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ExamplesComponent } from './pages/examples-lang/examples.component';
+import { ViewChildComponent } from './pages/sample-examples/view-child/view-child.component';
+import { SampleComponent } from './components/sample/sample.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ExamplesComponent,
+    ViewChildComponent,
+    SampleComponent
   ],
   imports: [
     BrowserModule,

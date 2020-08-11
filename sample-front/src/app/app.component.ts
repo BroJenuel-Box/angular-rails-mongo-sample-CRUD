@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
         },
         error => {
           localStorage.clear();
-          this.router.navigate(['/login']);
         }
       );
     }
