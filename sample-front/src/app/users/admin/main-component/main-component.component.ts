@@ -19,11 +19,11 @@ export class MainComponentComponent implements OnInit {
       icon: 'person',
       route: 'manage-user'
     },
-    // {
-    //   title: 'about',
-    //   icon: 'priority_high',
-    //   route: 'about'
-    // }
+    {
+      title: 'about',
+      icon: 'priority_high',
+      route: 'about'
+    }
   ];
 
   navOpen = true;
