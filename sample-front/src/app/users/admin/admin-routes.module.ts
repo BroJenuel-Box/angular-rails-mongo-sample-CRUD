@@ -7,7 +7,7 @@ const routes: Routes = [{
   component: MainComponentComponent,
   children: [
     {
-      path: '',
+      path: 'home',
       loadChildren: () => import('./../../pages/home/home.module').then(mod => mod.HomeModule)
     },
     {
@@ -17,6 +17,11 @@ const routes: Routes = [{
     {
       path: 'manage-user',
       loadChildren: () => import('./../../pages/manage-user/manage-user.module').then(mod => mod.ManageUserModule)
+    },
+    {
+      path: '',
+      redirectTo: '/admin/manage-user',
+      pathMatch: 'full'
     }
   ]
 }];

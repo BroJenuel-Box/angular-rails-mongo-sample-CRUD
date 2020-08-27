@@ -9,21 +9,21 @@ import { Router } from '@angular/router';
 })
 export class MainComponentComponent implements OnInit {
   appMenu = [
-    {
-      title: 'Home',
-      icon: 'home',
-      route: '/admin'
-    },
+    // {
+    //   title: 'Home',
+    //   icon: 'home',
+    //   route: 'home'
+    // },
     {
       title: 'Manage Users',
       icon: 'person',
       route: 'manage-user'
     },
-    {
-      title: 'about',
-      icon: 'priority_high',
-      route: 'about'
-    }
+    // {
+    //   title: 'about',
+    //   icon: 'priority_high',
+    //   route: 'about'
+    // }
   ];
 
   navOpen = true;

@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
 
 
           # using this is parang like sa sql
-          query = {:username => /.*#{params[:username]}.*/, :email => /.*#{params[:email]}.*/}
+          query = {:username => /.*#{params[:search]}.*/, :email => /.*#{params[:search]}.*/}
           # the id should be separated kasi object id ang id sa mongodb
           if(params[:id])
                query[:id] = params[:id]

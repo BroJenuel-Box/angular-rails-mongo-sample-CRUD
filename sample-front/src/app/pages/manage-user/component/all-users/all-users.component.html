@@ -1,9 +1,9 @@
 <div>
   <mat-form-field class="example-full-width">
     <mat-label>Search</mat-label>
-    <input matInput value="" />
+    <input matInput [(ngModel)]="search" value="" />
   </mat-form-field>
-  <button mat-raised-button style="margin: 10px;" color="primary">
+  <button mat-raised-button style="margin: 10px;" color="primary" (click)="getAllUser()">
     <mat-icon>search</mat-icon>
     Search
   </button>

@@ -61,7 +61,7 @@ export class AddUserComponent {
     ) {
       alert('Please Check Form Errors Before Proceeding');
       this.submitLoading = false;
-    }else{
+    } else {
       const form = {
         username: this.username,
         email: this.email,
@@ -77,6 +77,6 @@ export class AddUserComponent {
     }
   }
 
-  ngOninit() :void {}
+  ngOninit(): void {}
 
 }

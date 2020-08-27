@@ -1,18 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { RequestServiceService } from "src/app/service/request-service.service";
+import { Component, OnInit } from '@angular/core';
+import { RequestServiceService } from 'src/app/service/request-service.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddUserComponent } from './component/add-user/add-user.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
 
 @Component({
-  selector: "app-all-users",
-  templateUrl: "./all-users.component.html",
-  styleUrls: ["./../../manage-user.component.css"],
+  selector: 'app-all-users',
+  templateUrl: './all-users.component.html',
+  styleUrls: ['./../../manage-user.component.css'],
 })
 export class AllUsersComponent implements OnInit {
-  displayedColumns: string[] = ["_id", "username", "email", "type", "action"];
+  displayedColumns: string[] = ['_id', 'username', 'email', 'type', 'action'];
   dataSource = [];
 
+
+  // search
+  search = '';
   // pagination
   limit = 10;
   length = 0;
@@ -26,7 +29,7 @@ export class AllUsersComponent implements OnInit {
   }
 
   getAllUser() {
-    this.RS.httpGet("/get_users", { limit: this.limit, page: this.page }).subscribe(
+    this.RS.httpGet('/get_users', { limit: this.limit, page: this.page, search: this.search  }).subscribe(
       (data: any) => {
         this.dataSource = data.data;
         this.length = data.count;
@@ -46,24 +49,24 @@ export class AllUsersComponent implements OnInit {
     });
 
     dialogref.afterClosed().subscribe((result: any) => {
-      console.log(result)
-      this.dataSource.push(
-        {
-          _id: result._id,
-          username: result.username,
-          email: result.email,
-          type: result.type
-        }
-      )
+      console.log(result);
+      if (this.dataSource.length === 10) {
+        return true;
+      }
+      this.dataSource = [...this.dataSource, {
+        _id: result._id,
+        username: result.username,
+        email: result.email,
+        type: result.type
+      }];
       console.log(this.dataSource);
     });
   }
 
-  deleteUser(user){
-    let txt ='';
-    if (confirm("Are you sure to remove " + user.username)) {
-      this.RS.httpDelete('/delete_user?id='+user._id.$oid).subscribe(
-        (data:any) => {
+  deleteUser(user) {
+    if (confirm('Are you sure to remove ' + user.username)) {
+      this.RS.httpDelete('/delete_user?id=' + user._id.$oid).subscribe(
+        (data: any) => {
           this.getAllUser();
           alert(data.message);
         },
@@ -76,7 +79,7 @@ export class AllUsersComponent implements OnInit {
     }
   }
 
-  editUser(user){
+  editUser(user) {
     const dialogref = this.dialog.open(EditUserComponent, {
       width: '300px',
       data: {

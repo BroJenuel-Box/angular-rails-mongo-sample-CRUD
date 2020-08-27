@@ -36,7 +36,7 @@ class ApplicationController < ActionController::API
                     if Time.now.to_i > user_token[:token_ex].to_i
                          render json: {message: 'Token Expired, Login again'}, status: :unauthorized
                     else
-                         render json: account, status: :unauthorized
+                         render json: account, status: :ok
                     end
                else
                     render json: 'Unauthorized', status: :unauthorized

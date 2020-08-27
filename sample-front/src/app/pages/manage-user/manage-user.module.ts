@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddUserComponent } from './component/all-users/component/add-user/add-user.component';
 import { EditUserComponent } from './component/all-users/component/edit-user/edit-user.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -36,7 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ]
 })
 export class ManageUserModule { }
